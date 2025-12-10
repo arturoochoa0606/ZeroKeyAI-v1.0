@@ -1,0 +1,9 @@
+# ZeroKeyAI v1.0
+
+ZeroKeyAI es una plataforma modular para análisis, procesamiento y servicios de datos con API REST.
+
+## Instalación
+```bash
+conda env create -f environment.yml
+conda activate zerokeyai
+pip install -r requirements.txt
