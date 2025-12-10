@@ -1,0 +1,6 @@
+import os
+
+class Config:
+    DEBUG = True
+    SECRET_KEY = os.environ.get("ZEROKEY_SECRET", "default_secret")
+    DATABASE_URI = os.environ.get("ZEROKEY_DB", "sqlite:///zerokey.db")
