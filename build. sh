@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Nombre del proyecto y zip
+PROJECT="ZeroKeyAI-v1.0"
+ZIPFILE="$PROJECT.zip"
+
+# Colores para mensajes
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}==> Limpiando archivos previos...${NC}"
+rm -f $ZIPFILE
+
+echo -e "${GREEN}==> Generando archivo zip...${NC}"
+zip -r $ZIPFILE $PROJECT/
+
+echo -e "${GREEN}==> Inicializando repositorio Git...${NC}"
+cd $PROJECT
+git init
+git add .
+git commit -m "ZeroKeyAI v1.0 initial release"
+git branch -M main
+
+# Configura tu URL de GitHub aquí
+GITHUB_URL="https://github.com/TUUSUARIO/$PROJECT.git"
+
+echo -e "${GREEN}==> Configurando remoto...${NC}"
+git remote add origin $GITHUB_URL
+
+echo -e "${GREEN}==> Subiendo a GitHub...${NC}"
+git push -u origin main
+
+echo -e "${GREEN}==> Proceso completado. Archivo $ZIPFILE creado y proyecto subido.${NC}"
