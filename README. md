@@ -7,3 +7,15 @@ ZeroKeyAI es una plataforma modular para análisis, procesamiento y servicios de
 conda env create -f environment.yml
 conda activate zerokeyai
 pip install -r requirements.txt
+
+Ejecución  
+
+python -m zerokey.main
+---
+
+### `requirements.txt`
+```txt
+flask
+sqlalchemy
+cryptography
+requests
