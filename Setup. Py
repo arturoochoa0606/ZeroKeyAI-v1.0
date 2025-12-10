@@ -1,0 +1,18 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="zerokeyai",
+    version="1.0.0",
+    packages=find_packages(),
+    install_requires=[
+        "flask",
+        "sqlalchemy",
+        "cryptography",
+        "requests"
+    ],
+    entry_points={
+        "console_scripts": [
+            "zerokey=zerokey.main:main"
+        ]
+    },
+)
