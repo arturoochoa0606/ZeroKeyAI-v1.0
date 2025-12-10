@@ -1,0 +1,3 @@
+class Processor:
+    def process(self, numbers: list):
+        return {"sum": sum(numbers), "count": len(numbers)}
