@@ -1,0 +1,6 @@
+# Instalación de ZeroKeyAI
+
+1. Clonar el repositorio
+2. Crear entorno con `environment.yml`
+3. Instalar dependencias con `pip install -r requirements.txt`
+4. Ejecutar con `python -m zerokey.main`
