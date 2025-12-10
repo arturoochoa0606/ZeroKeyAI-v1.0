@@ -1,0 +1,11 @@
+from zerokey.utils.logger import get_logger
+
+logger = get_logger("Engine")
+
+class Engine:
+    def __init__(self):
+        logger.info("Engine initialized")
+
+    def run(self, data):
+        logger.info(f"Processing data: {data}")
+        return {"processed": True, "input": data}
