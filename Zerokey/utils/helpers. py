@@ -1,0 +1,27 @@
+import os
+import json
+import yaml
+
+
+def load_json(path: str):
+    """Load a JSON file and return parsed data."""
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"JSON file not found: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_yaml(path: str):
+    """Load a YAML file and return parsed data."""
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"YAML file not found: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+def ensure_dir(path: str):
+    """Create a directory if it doesn't exist. Returns True if created."""
+    if not os.path.exists(path):
+        os.makedirs(path, exist_ok=True)
+        return True
+    return False
