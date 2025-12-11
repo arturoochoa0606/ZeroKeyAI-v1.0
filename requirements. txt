@@ -1,24 +1,14 @@
-import os
-import json
-from flask import Flask
-from cryptography.fernet import Fernet
-7za
-7zip
-_anaconda_core_depende
-_núcleo de anaconda
-_anaconda_depende
-_ir_seleccionar
-_ipyw_jlab_nb_ext_conf
-_libarchive_static_par...
-_libgcc_mutex
-_baja_prioridad
-_mutex_mxnet
-_openmp_mutex
-_ppc64le-nivel de micr...
-_py-xgboost-mutex
-_pytorch_select
-_r-mutex
-_r-xgboost-mutex
-_pruebas_de_robotframe..
-vcrnnt 1inix-64
-Lciirr
+# Core dependencies
+numpy
+pandas
+requests
+
+# YAML & config handling
+pyyaml
+
+# Logging / utils
+rich
+
+# Developer tools
+flake8
+pytest
