@@ -1,14 +1,44 @@
-from flask import Flask
-from zerokey.api.routes import init_routes
+"""Main entry point for ZeroKeyAI."""
+import argparse
+import logging
+from .utils.logger import get_logger
+from .utils.helpers import ensure_dir, load_json, load_yaml
+import os
 
-def create_app():
-    app = Flask(__name__)
-    init_routes(app)
-    return app
+logger = get_logger(__name__)
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="ZeroKeyAI main runner")
+    parser.add_argument("--config", help="Path to config.json", default="config/config.json")
+    parser.add_argument("--settings", help="Path to settings.yml", default="config/settings.yml")
+    return parser.parse_args()
+
 
 def main():
-    app = create_app()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    args = parse_args()
+
+    # ensure folders
+    ensure_dir("logs")
+    ensure_dir("data")
+    ensure_dir("temp")
+
+    # load config
+    try:
+        cfg = load_json(args.config)
+        settings = load_yaml(args.settings)
+    except Exception as e:
+        logger.error("Failed to load configuration: %s", e)
+        return 1
+
+    logger.info("Starting ZeroKeyAI v%s", cfg.get("version", "?"))
+    logger.info("Environment: %s", settings.get("app", {}).get("environment"))
+
+    # here goes the main orchestration logic
+    logger.info("Initialization complete. Add your tasks in zerokey/main.py")
+
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    exit(main())
