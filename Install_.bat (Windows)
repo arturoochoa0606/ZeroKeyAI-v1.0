@@ -1,0 +1,41 @@
+@echo off
+echo ======================================
+echo      INSTALADOR ZeroKeyAI v1.0
+echo ======================================
+
+:: Verificar Python
+python --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo ❌ Python no está instalado.
+    pause
+    exit /b
+)
+
+echo ✔ Python detectado
+
+:: Crear carpetas necesarias
+echo Creando carpetas...
+mkdir logs 2>nul
+mkdir data 2>nul
+mkdir temp 2>nul
+
+:: Verificar conda
+where conda >nul 2>&1
+if %errorlevel%==0 (
+    echo Conda detectado.
+    choice /m "¿Deseas usar conda para instalar las dependencias?"
+    if %errorlevel%==1 (
+        echo Instalando dependencias con conda...
+        conda env update --file environment.yml --name zerokeyai
+        goto finish
+    )
+)
+
+echo Instalando dependencias con pip...
+pip install -r requirements.txt
+
+:finish
+echo ======================================
+echo  ✔ Instalación completada correctamente
+echo ======================================
+pause
