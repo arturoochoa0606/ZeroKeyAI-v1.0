@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+echo "======================================"
+echo "     INSTALADOR DE ZeroKeyAI v1.0     "
+echo "======================================"
+
+# Verificar Python
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Python 3 no está instalado. Instálalo antes de continuar."
+    exit 1
+fi
+
+PY=python3
+
+echo "✔ Python detectado: $($PY --version)"
+
+# Verificar pip
+if ! command -v pip3 &> /dev/null; then
+    echo "❌ pip no está instalado. Instálalo antes de continuar."
+    exit 1
+fi
+
+echo "✔ pip detectado"
+
+# Crear carpetas necesarias
+echo "🔧 Creando carpetas necesarias..."
+mkdir -p logs data temp
+echo "✔ Carpetas listas"
+
+# Verificar conda
+if command -v conda &> /dev/null; then
+    echo "📦 Conda detectado. ¿Deseas usar conda para instalar dependencias?"
+    echo "1) Sí, usar conda"
+    echo "2) No, usar pip"
+    read -p "Selecciona una opción [1/2]: " opt
+
+    if [ "$opt" = "1" ]; then
+        echo "🔧 Instalando dependencias con conda..."
+        conda env update --file environment.yml --name zerokeyai
+        echo "✔ Dependencias instaladas con conda"
+    else
+        echo "🔧 Instalando dependencias con pip..."
+        pip3 install -r requirements.txt
+        echo "✔ Dependencias instaladas con pip"
+    fi
+else
+    echo "ℹ Conda no encontrado, se usará pip."
+    pip3 install -r requirements.txt
+fi
+
+echo "======================================"
+echo "   ✔ Instalación completada con éxito "
+echo "======================================"
