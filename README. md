@@ -1,21 +1,49 @@
 # ZeroKeyAI v1.0
 
-ZeroKeyAI es una plataforma modular para análisis, procesamiento y servicios de datos con API REST.
+ZeroKeyAI es un framework modular y ligero diseñado para automatizar flujos de trabajo, manejar configuraciones avanzadas y ejecutar procesos inteligentes dentro de un entorno Python moderno.  
+Su arquitectura está optimizada para proyectos de automatización, análisis y herramientas inteligentes.
 
-## Instalación
-```bash
-conda env create -f environment.yml
-conda activate zerokeyai
-pip install -r requirements.txt
-
-Ejecución  
-
-python -m zerokey.main
 ---
 
-### `requirements.txt`
-```txt
-flask
-sqlalchemy
-cryptography
-requests
+## 🚀 Características Principales
+
+- ✔️ Arquitectura modular  
+- ✔️ Sistema de configuración (`config.json`, `settings.yml`)  
+- ✔️ Utilidades integradas en `utils/`  
+- ✔️ Preparado para CI/CD con GitHub Actions  
+- ✔️ Compatible con entornos Conda y pip  
+- ✔️ Código limpio y pep8-friendly  
+
+---
+
+## 📦 Instalación
+
+### 🔹 **Usando pip**
+Requisitos: Python 3.10+
+
+```bash
+pip install -r requirements.txt
+
+conda env update --file environment.yml
+conda activate zerokeyai
+
+from zerokey.main import main
+main()
+
+# Estructura del Proyecto 
+ZeroKeyAI-v1.0/
+├── README.md
+├── LICENSE
+├── NOTICE.txt
+├── requirements.txt
+├── environment.yml
+├── config/
+│   ├── config.json
+│   ├── settings.yml
+├── zerokey/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── helpers.py
+│   │   ├── logger.py
