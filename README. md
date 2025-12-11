@@ -1,49 +1,53 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/arturoochoa0606/ZeroKeyAI-v1.0/899a8a2eabec4c3ac7de8a117f43ec02b17c4b9a/Zerokey_20251209_045511_0000.png" alt="ZeroKeyAI Logo" width="200"/>
+</p>
+
 # ZeroKeyAI v1.0
 
-ZeroKeyAI es un framework modular y ligero diseñado para automatizar flujos de trabajo, manejar configuraciones avanzadas y ejecutar procesos inteligentes dentro de un entorno Python moderno.  
-Su arquitectura está optimizada para proyectos de automatización, análisis y herramientas inteligentes.
+[![Build Status](https://github.com/arturoochoa0606/ZeroKeyAI-v1.0/actions/workflows/python.yml/badge.svg)](https://github.com/arturoochoa0606/ZeroKeyAI-v1.0/actions/workflows/python.yml)  
+[![License](https://img.shields.io/github/license/arturoochoa0606/ZeroKeyAI-v1.0)](#licencia)  
+[![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](#instalación)  
+[![GitHub stars](https://img.shields.io/github/stars/arturoochoa0606/ZeroKeyAI-v1.0?style=social)](https://github.com/arturoochoa0606/ZeroKeyAI-v1.0/stargazers)
 
 ---
 
-## 🚀 Características Principales
+## 📋 Tabla de Contenidos
 
-- ✔️ Arquitectura modular  
-- ✔️ Sistema de configuración (`config.json`, `settings.yml`)  
-- ✔️ Utilidades integradas en `utils/`  
-- ✔️ Preparado para CI/CD con GitHub Actions  
-- ✔️ Compatible con entornos Conda y pip  
-- ✔️ Código limpio y pep8-friendly  
+- [Descripción](#descripción)  
+- [Características Principales](#características-principales)  
+- [Instalación](#instalación)  
+  - [Con pip (recomendado)](#usando-pip)  
+  - [Con conda (opcional)](#usando-conda)  
+- [Uso Básico](#uso-básico)  
+- [Estructura del Proyecto](#estructura-del-proyecto)  
+- [Pruebas y Linting](#pruebas-y-linting)  
+- [CI/CD](#cicd)  
+- [Contribuciones](#contribuciones)  
+- [Licencia](#licencia)  
+- [Créditos & Contacto](#contacto)
+
+---
+
+## 🧠 Descripción
+
+**ZeroKeyAI** es un framework modular y ligero — diseñado para automatización de flujos de trabajo, configuración flexible y ejecución de procesos inteligentes en Python.
+
+---
+
+## ✅ Características Principales
+
+- Arquitectura modular  
+- Soporte de configuración (`config.json`, `settings.yml`)  
+- Utilidades reutilizables en `utils/`  
+- Preparado para CI/CD con GitHub Actions  
+- Compatible con entornos `pip` y `conda`  
+- Código limpio, con pruebas automatizadas y linting
 
 ---
 
 ## 📦 Instalación
 
-### 🔹 **Usando pip**
-Requisitos: Python 3.10+
+### 🟦 Usando pip (recomendado)
 
 ```bash
 pip install -r requirements.txt
-
-conda env update --file environment.yml
-conda activate zerokeyai
-
-from zerokey.main import main
-main()
-
-# Estructura del Proyecto 
-ZeroKeyAI-v1.0/
-├── README.md
-├── LICENSE
-├── NOTICE.txt
-├── requirements.txt
-├── environment.yml
-├── config/
-│   ├── config.json
-│   ├── settings.yml
-├── zerokey/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── utils/
-│   │   ├── __init__.py
-│   │   ├── helpers.py
-│   │   ├── logger.py
