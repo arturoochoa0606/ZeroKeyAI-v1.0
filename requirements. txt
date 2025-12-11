@@ -1,4 +1,4 @@
-flask
-sqlalchemy
-cryptography
-requests
+import os
+import json
+from flask import Flask
+from cryptography.fernet import Fernet
