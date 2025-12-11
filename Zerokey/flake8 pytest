@@ -1,0 +1,19 @@
+---
+
+## environment.yml
+```yaml
+name: zerokeyai
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - requests
+  - pyyaml
+  - rich
+  - pip
+  - pip:
+      - flake8
+      - pytest
