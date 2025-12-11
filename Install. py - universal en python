@@ -1,0 +1,114 @@
+import os
+import sys
+import subprocess
+import platform
+import json
+import time
+
+BANNER = """
+============================================
+       INSTALADOR UNIVERSAL ZeroKeyAI
+                 Version 1.0
+============================================
+"""
+
+def run(cmd, shell=False):
+    """Ejecuta comandos de forma segura."""
+    try:
+        print(f"→ Ejecutando: {cmd}")
+        result = subprocess.run(cmd, shell=shell, check=True)
+        return result.returncode == 0
+    except subprocess.CalledProcessError:
+        return False
+
+
+def check_python():
+    print("🔍 Verificando versión de Python...")
+    if sys.version_info < (3, 10):
+        print("❌ Python 3.10+ es requerido.")
+        sys.exit(1)
+    print(f"✔ Python detectado: {platform.python_version()}")
+
+
+def check_pip():
+    print("🔍 Buscando pip...")
+    if run(["pip", "--version"]):
+        print("✔ pip detectado")
+        return True
+    if run(["pip3", "--version"]):
+        print("✔ pip3 detectado")
+        return True
+    print("❌ No se encontró pip.")
+    sys.exit(1)
+
+
+def check_conda():
+    print("🔍 Buscando Conda...")
+    if run(["conda", "--version"]):
+        print("✔ Conda detectado")
+        return True
+    print("ℹ Conda no encontrado, se usará pip.")
+    return False
+
+
+def create_directories():
+    dirs = ["logs", "data", "temp"]
+    print("📁 Creando carpetas necesarias...")
+    for d in dirs:
+        os.makedirs(d, exist_ok=True)
+    print("✔ Carpetas listas")
+
+
+def install_with_pip():
+    print("📦 Instalando dependencias con pip...")
+    if not os.path.exists("requirements.txt"):
+        print("⚠ requirements.txt no existe. Saltando...")
+        return
+
+    run(["pip", "install", "-r", "requirements.txt"])
+    print("✔ Dependencias instaladas con pip")
+
+
+def install_with_conda():
+    print("📦 Instalando dependencias con conda...")
+    if not os.path.exists("environment.yml"):
+        print("⚠ environment.yml no existe. Saltando...")
+        return
+
+    run(["conda", "env", "update", "--file", "environment.yml", "--name", "zerokeyai"])
+    print("✔ Dependencias instaladas con conda")
+
+
+def main():
+    os.system("cls" if os.name == "nt" else "clear")
+    print(BANNER)
+
+    check_python()
+    check_pip()
+    has_conda = check_conda()
+    create_directories()
+
+    print("\n=== Método de instalación ===")
+    if has_conda:
+        print("1) Instalar usando Conda")
+        print("2) Instalar usando pip")
+        choice = input("Selecciona opción (1/2): ").strip()
+    else:
+        choice = "2"
+
+    if choice == "1":
+        install_with_conda()
+    else:
+        install_with_pip()
+
+    print("\n======================================")
+    print("   ✔ ZeroKeyAI instalado correctamente")
+    print("======================================")
+    print("Puedes ejecutar el proyecto con:\n")
+    print("   python -m zerokey.main\n")
+
+    input("Presiona ENTER para salir...")
+
+
+if __name__ == "__main__":
+    main()
