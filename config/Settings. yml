@@ -1,0 +1,19 @@
+app:
+  name: ZeroKeyAI
+  environment: production
+  debug: false
+
+paths:
+  log_dir: logs/
+  temp_dir: temp/
+  data_dir: data/
+
+security:
+  enable_encryption: true
+  token_expiration_minutes: 30
+  max_login_attempts: 5
+
+api:
+  base_url: "https://api.example.com/v1/"
+  timeout: 10
+  retries: 3
