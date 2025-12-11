@@ -1,0 +1,17 @@
+{
+  "project_name": "ZeroKeyAI",
+  "version": "1.0",
+  "author": "Arturo Ochoa",
+  "email": "arturoochoa0606@gmail.com",
+
+  "logging": {
+    "level": "INFO",
+    "save_to_file": true,
+    "log_file": "logs/zerokey.log"
+  },
+
+  "features": {
+    "enable_analytics": true,
+    "enable_debug_mode": false
+  }
+}
