@@ -1,2 +1,20 @@
-# Data folder
-Contiene archivos de ejemplo y datasets para pruebas.
+ZeroKeyAI-v1.0/
+├── .github/workflows/python.yml
+├── .gitignore
+├── LICENSE
+├── NOTICE.txt
+├── README.md
+├── requirements.txt
+├── environment.yml
+├── config/
+│   ├── config.json
+│   └── settings.yml
+├── zerokey/
+│   ├── __init__.py
+│   ├── main.py
+│   └── utils/
+│       ├── __init__.py
+│       ├── logger.py
+│       └── helpers.py
+└── tests/
+    └── test_example.py
