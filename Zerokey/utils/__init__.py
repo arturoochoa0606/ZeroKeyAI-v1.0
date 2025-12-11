@@ -1,1 +1,1 @@
-# Utils package
+# utility package initializer
