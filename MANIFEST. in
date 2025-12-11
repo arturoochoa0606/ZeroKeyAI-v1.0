@@ -1,0 +1,40 @@
+# Incluir archivos esenciales
+include README.md
+include LICENSE
+include NOTICE.txt
+include requirements.txt
+include environment.yml
+
+# Incluir archivos de configuración
+recursive-include config *.json
+recursive-include config *.yml
+recursive-include config *.yaml
+
+# Incluir recursos estáticos
+recursive-include assets *
+recursive-include data *
+recursive-include docs *
+
+# Incluir el logotipo u otras imágenes
+recursive-include . *.png
+recursive-include . *.jpg
+recursive-include . *.jpeg
+recursive-include . *.svg
+
+# Incluir código fuente
+recursive-include zerokey *.py
+
+# Incluir pruebas
+recursive-include tests *.py
+
+# Excluir carpetas que no deben ir en el paquete
+exclude *.pyc
+recursive-exclude __pycache__ *
+recursive-exclude .git *
+recursive-exclude .github *
+recursive-exclude temp *
+recursive-exclude logs *
+
+# Incluir archivos adicionales si existen
+global-include *.txt
+global-include *.md
